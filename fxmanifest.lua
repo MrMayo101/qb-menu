@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-description 'QB-Menu'
+description 'QB-Menu modified by ZF-Labo'
 version '1.2.0'
 
 client_script 'client/main.lua'

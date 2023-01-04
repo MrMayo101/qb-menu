@@ -1,7 +1,7 @@
 # qb-menu
 Menu System for the QBCore Framework
 
-This is a modified version of **[NH Context](https://forum.cfx.re/t/no-longer-supported-standalone-nerohiro-s-context-menu-dynamic-event-firing-menu/2564083)** by **[NeroHiro](https://github.com/nerohiro)**
+This is a modified version of **[QB Menu](github.com/qbcore-framework/qb-menu)**
 
 --[[
 EXAMPLE MENU
@@ -17,6 +17,7 @@ RegisterCommand("qbmenutest", function(source, args, raw)
         {
             header = "Sub Menu Button",
             txt = "This goes to a sub menu",
+            isSubMenu = true, -- Set to true to add the > to the end of the button
             params = {
                 event = "qb-menu:client:testMenu2",
                 args = {
@@ -28,6 +29,7 @@ RegisterCommand("qbmenutest", function(source, args, raw)
             header = "Sub Menu Button",
             txt = "This goes to a sub menu",
             disabled = true,
+            isSubMenu = true, -- Set to true to add the > to the end of the button
             -- hidden = true, -- doesnt create this at all if set to true
             params = {
                 event = "qb-menu:client:testMenu2",

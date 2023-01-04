@@ -7,9 +7,10 @@ const openMenu = (data = null) => {
             let header = item.header;
             let message = item.txt || item.text;
             let isMenuHeader = item.isMenuHeader;
+            let isSubMenu = item.isSubMenu;
             let isDisabled = item.disabled;
             let icon = item.icon;
-            html += getButtonRender(header, message, index, isMenuHeader, isDisabled, icon);
+            html += getButtonRender(header, message, index, isMenuHeader, isSubMenu, isDisabled, icon);
             if (item.params) buttonParams[index] = item.params;
         }
     });
@@ -24,13 +25,14 @@ const openMenu = (data = null) => {
     });
 };
 
-const getButtonRender = (header, message = null, id, isMenuHeader, isDisabled, icon) => {
+const getButtonRender = (header, message = null, id, isMenuHeader, isSubMenu, isDisabled, icon) => {
     return `
         <div class="${isMenuHeader ? "title" : "button"} ${isDisabled ? "disabled" : ""}" id="${id}">
             <div class="icon"> <img src=nui://${icon} width=30px onerror="this.onerror=null; this.remove();"> <i class="${icon}" onerror="this.onerror=null; this.remove();"></i> </div>
             <div class="column">
             <div class="header"> ${header}</div>
             ${message ? `<div class="text">${message}</div>` : ""}
+            ${isSubMenu ? `<div class="subicon"> <i class="fas fa-angle-right" onerror="this.onerror=null; this.remove();"></i> </div>` : ""}
             </div>
         </div>
     `;
@@ -50,8 +52,6 @@ const cancelMenu = () => {
     $.post(`https://${GetParentResourceName()}/closeMenu`);
     return closeMenu();
 };
-
-
 
 window.addEventListener("message", (event) => {
     const data = event.data;
