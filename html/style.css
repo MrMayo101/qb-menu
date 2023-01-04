@@ -119,6 +119,8 @@ div > .text {
     font-size: 0.75rem;
     overflow: hidden;
     font-weight: 200;
+    padding-bottom: 0.5rem;
+    max-width: 90%;
 }
 
 div > .header {
@@ -134,4 +136,8 @@ div > .header {
     font-weight: 400;
     overflow: hidden;
     line-height: 1.75rem;
+}
+
+.column {
+    width: 100%;
 }
