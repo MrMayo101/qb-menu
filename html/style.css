@@ -1,4 +1,3 @@
-/* Nice font for button from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 * {
@@ -16,11 +15,13 @@
     border-radius: 5px;
     background: transparent !important;
 }
+
 .button {
     cursor: pointer;
     display: flex;
     flex-direction: row !important;
 }
+
 .title {
     cursor: default;
     display: flex;
@@ -35,8 +36,7 @@
     padding: 10px;
 }
 
-html,
-body {
+html, body {
     background: transparent !important;
 }
 
@@ -51,7 +51,8 @@ body::-webkit-scrollbar {
 .button {
     width: auto;
     max-width: 40%;
-    height: 1.75rem;
+    min-height: 1.75rem;
+    height: auto;
     background: #212832;
     color: white;
     margin: auto;
@@ -94,15 +95,18 @@ body::-webkit-scrollbar {
 .title {
     width: auto;
     max-width: 40%;
-    height: 1.75rem;
-    background: #212832;
+    min-height: 1.75rem;
+    height: auto;
+    background: #364353;
     color: white;
     margin: auto;
     position: relative;
     top: 10%;
     margin-top: 0.5rem;
+    margin-bottom: 1.0rem;
     overflow: hidden;
     padding: 0.45rem;
+    padding-bottom: 0.45rem;
     border-radius: 0.15rem;
     display: flex;
     flex-direction: column;
@@ -110,7 +114,7 @@ body::-webkit-scrollbar {
 }
 
 .disabled {
-    background: rgba(102, 102, 102, 0.9) !important;
+    background: rgba(54, 67, 83, 0.85) !important;
     cursor: default;
 }
 
