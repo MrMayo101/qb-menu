@@ -59,7 +59,6 @@ body::-webkit-scrollbar {
     position: relative;
     top: 10%;
     margin-top: 0.4rem;
-    overflow: hidden;
     padding: 0.45rem;
     border-radius: 0.25rem;
     display: flex;
@@ -79,6 +78,15 @@ body::-webkit-scrollbar {
     line-height: 1.75rem;
 }
 
+.icon > img {
+    visibility: hidden;
+    margin-left: -5rem;
+    height: 10vh;
+    width: 10.5vh;
+    position: absolute;
+    z-index: 999999;
+}
+
 .subicon {
     position: absolute;
     text-align: center;
@@ -90,6 +98,11 @@ body::-webkit-scrollbar {
 
 .button:hover {
     background-color: #364353;
+}
+
+.button:hover img {
+    animation: fadeIn 2.5s;
+    visibility: visible;
 }
 
 .title {
@@ -104,13 +117,17 @@ body::-webkit-scrollbar {
     top: 10%;
     margin-top: 0.5rem;
     margin-bottom: 1.0rem;
-    overflow: hidden;
     padding: 0.45rem;
     padding-bottom: 0.45rem;
     border-radius: 0.15rem;
     display: flex;
     flex-direction: column;
     box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
+}
+
+.title:hover img {
+    animation: fadeIn 2.5s;
+    visibility: visible;
 }
 
 .disabled {
@@ -145,3 +162,13 @@ div > .header {
 .column {
     width: 100%;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+
+    line-height: 1.75rem;
+}
+
+.column {
+    width: 100%;
