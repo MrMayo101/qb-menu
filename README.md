@@ -1,6 +1,8 @@
 # qb-menu
 Menu System for the QBCore Framework
 
+For Support or Suggestions, join our [Discord](https://discord.gg/wp3SqwRUmH)
+
 This is a modified version of **[QB Menu](github.com/qbcore-framework/qb-menu)**
 
 --[[
