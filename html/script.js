@@ -27,7 +27,6 @@ const openMenu = (data = null, size = null) => {
 };
 
 const getButtonRender = (header, message = null, id, isMenuHeader, isSubMenu, isDisabled, icon, image, size) => {
-    console.log(size);
     let width = "37.25vw";
     let maxw = "40%";
     if (size == "medium") { width = "44vw"; maxw = "80%"; };
