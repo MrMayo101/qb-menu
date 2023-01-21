@@ -5,25 +5,35 @@ local headerShown = false
 local sendData = nil
 
 -- Functions
-local function openMenu(data)
+local function openMenu(data, size)
     if not data or not next(data) then return end
 	for _,v in pairs(data) do
-		if v["icon"] then
-			local img = "qb-inventory/html/"
-			if QBCore.Shared.Items[tostring(v["icon"])] then
-				if not string.find(QBCore.Shared.Items[tostring(v["icon"])].image, "images/") then
-					img = img.."images/"
-				end
-				v["icon"] = img..QBCore.Shared.Items[tostring(v["icon"])].image
-			end
-		end
+        if v.icon then
+            if QBCore.Shared.Items[tostring(v.icon)] then
+                if not string.find(QBCore.Shared.Items[tostring(v.image)].image, "http") then
+                    v.image = "ap-inventory/html/images/"..QBCore.Shared.Items[tostring(v.image)].image
+                else
+                    v.image = v.image
+                end
+            end
+        end
+        if v.image then
+            if QBCore.Shared.Items[tostring(v.image)] then
+                if not string.find(QBCore.Shared.Items[tostring(v.image)].image, "http") then
+                    v.image = "ap-inventory/html/images/"..QBCore.Shared.Items[tostring(v.image)].image
+                else
+                    v.image = v.image
+                end
+            end
+        end
 	end
     SetNuiFocus(true, true)
     headerShown = false
     sendData = data
     SendNUIMessage({
         action = 'OPEN_MENU',
-        data = table.clone(data)
+        data = table.clone(data),
+        size = size
     })
 end
 
@@ -48,8 +58,8 @@ end
 
 -- Events
 
-RegisterNetEvent('qb-menu:client:openMenu', function(data)
-    openMenu(data)
+RegisterNetEvent('qb-menu:client:openMenu', function(data, size)
+    openMenu(data, size)
 end)
 
 RegisterNetEvent('qb-menu:client:closeMenu', function()

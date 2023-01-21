@@ -1,6 +1,6 @@
 let buttonParams = [];
 
-const openMenu = (data = null) => {
+const openMenu = (data = null, size = null) => {
     let html = "";
     data.forEach((item, index) => {
         if(!item.hidden) {
@@ -10,7 +10,8 @@ const openMenu = (data = null) => {
             let isSubMenu = item.isSubMenu;
             let isDisabled = item.disabled;
             let icon = item.icon;
-            html += getButtonRender(header, message, index, isMenuHeader, isSubMenu, isDisabled, icon);
+            let image = item.image
+            html += getButtonRender(header, message, index, isMenuHeader, isSubMenu, isDisabled, icon, image, size);
             if (item.params) buttonParams[index] = item.params;
         }
     });
@@ -25,10 +26,16 @@ const openMenu = (data = null) => {
     });
 };
 
-const getButtonRender = (header, message = null, id, isMenuHeader, isSubMenu, isDisabled, icon) => {
+const getButtonRender = (header, message = null, id, isMenuHeader, isSubMenu, isDisabled, icon, image, size) => {
+    console.log(size);
+    let width = "37.25vw";
+    let maxw = "40%";
+    if (size == "medium") { width = "44vw"; maxw = "80%"; };
+    if (size == "large") { width = "52vw"; maxw = "100%"; };
+
     return `
-        <div class="${isMenuHeader ? "title" : "button"} ${isDisabled ? "disabled" : ""}" id="${id}">
-            <div class="icon"> <img src=nui://${icon} width=30px onerror="this.onerror=null; this.remove();"> <i class="${icon}" onerror="this.onerror=null; this.remove();"></i> </div>
+        <div class="${isMenuHeader ? "title" : "button"} ${isDisabled ? "disabled" : ""}" id="${id}" style="width: ${width}; max-width: ${maxw};">
+            <div class="icon"> <img src=nui://${image} width=30px onerror="this.onerror=null; this.remove();"> <i class="${icon}" onerror="this.onerror=null; this.remove();"></i> </div>
             <div class="column">
             <div class="header"> ${header}</div>
             ${message ? `<div class="text">${message}</div>` : ""}
@@ -60,7 +67,7 @@ window.addEventListener("message", (event) => {
     switch (action) {
         case "OPEN_MENU":
         case "SHOW_HEADER":
-            return openMenu(buttons);
+            return openMenu(buttons, data.size);
         case "CLOSE_MENU":
             return closeMenu();
         default:
