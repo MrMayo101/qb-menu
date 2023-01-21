@@ -11,7 +11,7 @@ local function openMenu(data, size)
         if v.icon then
             if QBCore.Shared.Items[tostring(v.icon)] then
                 if not string.find(QBCore.Shared.Items[tostring(v.image)].image, "http") then
-                    v.image = "ap-inventory/html/images/"..QBCore.Shared.Items[tostring(v.image)].image
+                    v.image = "qb-inventory/html/images/"..QBCore.Shared.Items[tostring(v.image)].image
                 else
                     v.image = v.image
                 end
@@ -20,7 +20,7 @@ local function openMenu(data, size)
         if v.image then
             if QBCore.Shared.Items[tostring(v.image)] then
                 if not string.find(QBCore.Shared.Items[tostring(v.image)].image, "http") then
-                    v.image = "ap-inventory/html/images/"..QBCore.Shared.Items[tostring(v.image)].image
+                    v.image = "qb-inventory/html/images/"..QBCore.Shared.Items[tostring(v.image)].image
                 else
                     v.image = v.image
                 end
