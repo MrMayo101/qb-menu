@@ -34,7 +34,7 @@ const getButtonRender = (header, message = null, id, isMenuHeader, isSubMenu, is
 
     return `
         <div class="${isMenuHeader ? "title" : "button"} ${isDisabled ? "disabled" : ""}" id="${id}" style="width: ${width}; max-width: ${maxw};">
-            <div class="icon"> <img src=nui://${image} width=30px onerror="this.onerror=null; this.remove();"> <i class="${icon}" onerror="this.onerror=null; this.remove();"></i> </div>
+            <div class="icon"> <img src=nui://${image} width=30px onerror="this.onerror=null; this.remove();"> <img src=nui://${icon} width=30px onerror="this.onerror=null; this.remove();"> <i class="${icon}" onerror="this.onerror=null; this.remove();"></i> </div>
             <div class="column">
             <div class="header"> ${header}</div>
             ${message ? `<div class="text">${message}</div>` : ""}
