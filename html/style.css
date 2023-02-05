@@ -58,7 +58,7 @@ body::-webkit-scrollbar {
     top: 10%;
     margin-top: 0.4rem;
     padding: 0.45rem;
-    border-radius: 0.25rem;
+    border-radius: 0.35rem;
     display: flex;
     flex-direction: column;
     box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
@@ -117,7 +117,7 @@ body::-webkit-scrollbar {
     margin-bottom: 1.0rem;
     padding: 0.45rem;
     padding-bottom: 0.45rem;
-    border-radius: 0.15rem;
+    border-radius: 0.35rem;
     display: flex;
     flex-direction: column;
     box-shadow: 0rem 0rem 0.5rem 0.05rem #000000;
