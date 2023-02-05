@@ -10,10 +10,10 @@ local function openMenu(data, size)
 	for _,v in pairs(data) do
         if v.icon then
             if QBCore.Shared.Items[tostring(v.icon)] then
-                if not string.find(QBCore.Shared.Items[tostring(v.image)].image, "http") then
-                    v.image = "qb-inventory/html/images/"..QBCore.Shared.Items[tostring(v.image)].image
+                if not string.find(QBCore.Shared.Items[tostring(v.icon)].image, "http") then
+                    v.icon = "qb-inventory/html/images/"..QBCore.Shared.Items[tostring(v.icon)].image
                 else
-                    v.image = v.image
+                    v.icon = v.icon
                 end
             end
         end
